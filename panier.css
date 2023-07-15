@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.panier {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    background-color: #d9d9d9;
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2px;
+}
+
+nav .logo {
+    width: 30%;
+    text-align: center;
+}
+
+nav .recherche {
+    width: 30%;
+}
+
+nav input {
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px 5px;
+
+}
+
+nav input:focus {
+    outline: none;
+
+}
+
+nav .nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+.nav-menu a {
+    width: 30%;
+}
+
+.nav-item {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item:hover:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    animation: apparaitre 0.2s forwards ease-in-out;
+    background-color: rgb(254, 153, 52);
+}
+
+.nav-item.actif::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(254, 153, 52);
+}
+
+@keyframes apparaitre {
+    to {
+        width: 100%;
+    }
+}
+
+/* CONTAINER */
+
+.container {
+    width: 50%;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+
+}
+
+.container .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #D9D9D9;
+    padding: 20px;
+    border-radius: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-box-shadow: -18px -7px 24px -15px #000000;
+    box-shadow: -18px -7px 24px -15px #000000;
+}
+
+
+.container .card::-webkit-scrollbar {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.container .card::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 200, 145);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 50px;
+}
+
+
+
+.container .card .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .card .card-content h2 {
+    margin-bottom: 15px;
+}
+
+.container .card .card-content .produit {
+    width: 80%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 0px -30px rgba(0, 0, 0, 0);
+    box-shadow: 0px 10px 13px -7px #000000, 0px 0px 0px -30px rgba(0, 0, 0, 0);
+}
+
+.container .card .card-content .produit .prix {
+    font-weight: bold;
+}
+
+.container .card .card-content .infos-produit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+}
+
+
+.container .card .card-content .infos-produit p {
+    width: 50%;
+}
+
+.container .card .card-content .produit img {
+    height: 50px;
+    width: 60px;
+    margin-right: 20px;
+}
+
+.container .infos-prix {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+.container .infos-prix .nombre-produit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .infos-prix .nombre-produit input {
+    width: 20px;
+    height: 20px;
+    margin: 5px 0px;
+    text-align: center;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.container .infos-prix .nombre-produit i:hover,
+.container .infos-prix i:hover {
+    cursor: pointer;
+}
+
+.container .cout-panier {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .cout-panier .total-produit {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.container .cout-panier .total-prix {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+.payer,
+.supprimer {
+    position: absolute;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(255, 200, 145);
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payer {
+    bottom: 35px;
+    right: 25%;
+}
+
+.supprimer {
+    bottom: 35px;
+    left: 25%;
+}
+
+button i {
+    color: black;
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    animation: fade 0.2s forwards ease-in-out;
+}
+
+@keyframes fade {
+    to {
+        background-color: rgb(214, 107, 0);
+    }
+}
+
+
+
+@media screen and (max-width: 1184px) {
+    .supprimer {
+        left: 15%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .container {
+        width: 75%;
+    }
+
+    .supprimer {
+        left: 10%;
+    }
+
+    .payer {
+        right: 20%;
+    }
+
+    .nav-menu span {
+            display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .supprimer {
+        left: 5%;
+    }
+
+    .payer {
+        right: 15%;
+    }
+
+}
+
+@media screen and (max-width: 615px) {
+
+    .payer,
+    .supprimer {
+        font-size: 1em;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .supprimer {
+        left: 1%;
+    }
+
+    .payer {
+        right: 1%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .payer,
+    .supprimer {
+        font-size: 0.8em;
+    }
+
+    .cout-panier {
+        font-size: 0.8em;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
